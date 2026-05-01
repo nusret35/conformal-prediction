@@ -1,0 +1,11 @@
+torch
+torchvision
+matplotlib
+numpy
+medmnist
+tqdm
+scikit-learn
+mapie
+Pillow
+pandas
+requests
