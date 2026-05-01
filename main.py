@@ -322,7 +322,7 @@ if __name__ == "__main__":
         plt.legend()
 
         plt.tight_layout()
-        plt.show()
+        plt.savefig("training_curves.png", dpi=150, bbox_inches="tight")
     finally:
         pod_id = ""
         token = ""
