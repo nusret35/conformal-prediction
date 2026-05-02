@@ -17,6 +17,7 @@ from sklearn.metrics import roc_auc_score
 from sklearn.base import BaseEstimator, ClassifierMixin
 from PIL import Image
 import requests
+import traceback
 
 if __name__ == "__main__":
     try:
@@ -323,6 +324,9 @@ if __name__ == "__main__":
 
         plt.tight_layout()
         plt.savefig("training_curves.png", dpi=150, bbox_inches="tight")
+    except Exception as e:
+        with open("error.txt", "w") as f:
+            traceback.print_exc(file=f)
     finally:
         pod_id = ""
         token = ""
@@ -331,4 +335,3 @@ if __name__ == "__main__":
         headers = {"Authorization": f"Bearer {token}"}
 
         response = requests.post(url, headers=headers)
-        print(response.status_code, response.json())
